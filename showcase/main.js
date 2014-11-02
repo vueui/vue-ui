@@ -1,9 +1,22 @@
 var Vue = require('vue');
 var Progress = require('..').Progress;
+var Accordion = require('..').Accordion;
 
 window.app = new Vue({
     el: '#app'
 });
+
+
+/**
+ * <ui-accordion> examples
+ */
+
+window.accordion = app.$.accordion;
+
+
+/**
+ * <ui-progress> examples
+ */
 
 window.progress = app.$.progress;
 
