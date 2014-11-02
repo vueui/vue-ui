@@ -1,0 +1,15 @@
+node_modules
+bower_components
+semantic-ui
+
+# builds
+build
+showcase/build.js
+
+# logs
+npm-debug.log
+
+# Exclude HTML from the prototypes
+
+# other
+.idea

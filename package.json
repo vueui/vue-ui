@@ -1,0 +1,29 @@
+{
+  "name": "Vue-UI",
+  "version": "0.0.1",
+  "description": "A 'port' of the Semantic-UI modules as Vue.js components.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:agonbina/vue-ui.git"
+  },
+  "author": "Agon Bina <agon_bina@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agonbina/vue-ui/issues"
+  },
+  "homepage": "https://github.com/agonbina/vue-ui",
+  "dependencies": {
+    "vue": "yyx990803/vue#0.11.0-rc3"
+  },
+  "devDependencies": {
+    "webpack": "^1.4.10",
+    "html-webpack-plugin": "^1.1.0",
+    "css-loader": "^0.9.0",
+    "style-loader": "^0.8.1",
+    "jade-html-loader": "0.0.2",
+    "html-loader": "^0.2.3",
+    "jade": "^1.7.0"
+  }
+}
