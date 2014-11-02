@@ -1,16 +1,25 @@
 
+/**
+ * Module dependencies
+ */
+
 var Vue = require('vue');
+var appendToClassMixin = require('../../helpers/mixins/appendToClass');
+
+
+/**
+ * <ui-progress> definition
+ */
 
 module.exports = {
-    paramAttributes: [ 'class', 'value', 'total' ],
+    name: 'Progress',
+
+    paramAttributes: [ 'value', 'total' ],
+
+    mixins: [ appendToClassMixin ],
 
     compiled: function () {
         var vm = this;
-
-        if(vm.class) {
-            var $uiProgress = vm.$el.querySelector('.ui.progress');
-            $uiProgress.className += ' ' + vm.class;
-        }
 
         if(vm.value) vm.value = parseInt(vm.value, 10);
         if(vm.total) vm.total = parseInt(vm.total, 10);
