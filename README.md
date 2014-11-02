@@ -7,3 +7,5 @@ I created this set of modules for a few reasons:
 * Set some defaults w/ options to override them
 
 ### <ui-progress>
+
+### <ui-accordion>
