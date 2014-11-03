@@ -67,19 +67,11 @@ module.exports = {
         'value === total': function () {
             var vm = this;
 
-            vm.isActive = false;
-            vm.$emit('completed');
-
-            /**
-             * Set the status to be 'success' by default
-             */
-
+            // Set the status to be 'success' by default
             if(vm.autoStatus) vm.status = "success";
 
-
-            /**
-             * Destroy the component when it reaches to the 'completed' stage
-             */
+            vm.isActive = false;
+            vm.$emit('completed');
 
             // Destroy the component when it reaches to the 'completed' stage
             if(vm.autoDestroy) {

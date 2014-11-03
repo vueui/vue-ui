@@ -1,6 +1,6 @@
 div.ui.progress(v-class="active : isActive, status")
     .bar(v-style="width: progress + '%'")
         content(select=".progress")
-            .progress {{value}} of {{total}}
+            .progress {{progress}}%
     content(select=".label")
         .label {{ isActive ? 'Running' : 'Done' }}
