@@ -3,5 +3,7 @@
         .title(
                 v-on="click: toggle($index)",
                 v-class="active: isActive($index)"
-            ) {{* title}}
-        .content(v-class="active: isActive($index)") {{* content}}
+            )
+            content(select=".title") {{* title}}
+        .content(v-class="active: isActive($index)")
+            content(select=".content") {{* content}}
