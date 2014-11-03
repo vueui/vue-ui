@@ -14,7 +14,7 @@
         <div id="transcoder"></div>
 
         <!-- Accordion -->
-        <ui-accordion class="styled" v-ref="accordion">
+        <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
             <a href="#" class="content">{{content}}</a>
         </ui-accordion>
     </div>
