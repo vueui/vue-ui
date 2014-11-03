@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/agonbina/vue-ui",
   "dependencies": {
-    "vue": "yyx990803/vue#0.11.0-rc3"
+    "vue": "yyx990803/vue#next"
   },
   "devDependencies": {
     "webpack": "^1.4.10",

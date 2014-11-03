@@ -7,11 +7,16 @@
 <body>
     <div id="app">
         <!-- Progress -->
-        <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress"></ui-progress>
+        <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
+            <div class="label">Adding {{value}} of {{total}} photos</div>
+        </ui-progress>
+
         <div id="transcoder"></div>
 
         <!-- Accordion -->
-        <ui-accordion class="styled" v-ref="accordion"></ui-accordion>
+        <ui-accordion class="styled" v-ref="accordion">
+            <a href="#" class="content">{{content}}</a>
+        </ui-accordion>
     </div>
     <script src="{%=o.htmlWebpackPlugin.assets.main%}"></script>
 </body>

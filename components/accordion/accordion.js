@@ -11,25 +11,19 @@ module.exports = {
     template: require('./accordion.jade'),
 
     compiled: function () {
-
+        if(this.active) this.active = parseInt(this.active, 10);
     },
 
     data: function () {
         return {
-            sections: [{
-                title: 'test',
-                content: 'test'
-            }, {
-                title: 'two',
-                content: 'three'
-            }],
-            active: 0
+            sections: [],
+            active: -1
         };
     },
 
     methods: {
         toggle: function (index) {
-            this.active = index;
+            this.active = index === this.active ? -1 : index;
         },
 
         isActive: function (index) {

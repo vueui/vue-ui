@@ -1,6 +1,7 @@
 var Vue = require('vue');
-var Progress = require('..').Progress;
-var Accordion = require('..').Accordion;
+var UI = require('..');
+var Progress = UI.Progress;
+var Accordion = UI.Accordion;
 
 window.app = new Vue({
     el: '#app'
@@ -8,10 +9,17 @@ window.app = new Vue({
 
 
 /**
- * <ui-accordion> examples
+ * <ui-accordion> example
  */
 
 window.accordion = app.$.accordion;
+accordion.sections = [{
+    title: 'Google',
+    content: 'http://google.com'
+}, {
+    title: 'Facebook',
+    content: 'http://facebook.com'
+}];
 
 
 /**
@@ -21,7 +29,10 @@ window.accordion = app.$.accordion;
 window.progress = app.$.progress;
 
 function onUploaded() {
-    console.log('File uploaded!');
+    var $label = this.$el.querySelector('.label');
+    $label.textContent = 'Added ' + this.value + ' photos';
+
+    console.log('Photos uploaded!');
 }
 
 progress.$once('completed', onUploaded);
