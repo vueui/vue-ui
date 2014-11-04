@@ -37,6 +37,13 @@
 
     <ui-dimmer class="page" message="This is a page dimmer." v-ref="pageDimmer"></ui-dimmer>
 
+    <!-- Rating -->
+    <ui-rating class="huge heart" rating="5" max="10" v-ref="rating"></ui-rating>
+    <div>
+        <ui-rating class="huge star" v-ref="starsRating"></ui-rating>
+    </div>
+
+
     <script src="{%=o.htmlWebpackPlugin.assets.main%}"></script>
 </body>
 </html>

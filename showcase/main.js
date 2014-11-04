@@ -11,7 +11,14 @@ window.app = new Vue({
 });
 
 /**
- *
+ * <ui-rating>
+ */
+
+window.rating = app.$.rating;
+window.starsRating = app.$.starsRating;
+
+/**
+ *  <ui-dimmer>
  */
 
 window.dimmer = app.$.dimmer;
