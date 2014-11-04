@@ -6,10 +6,10 @@
             v-attr="value: value"
         )
     label(
-            v-if="type === 'checkbox'",
+            v-show="type === 'checkbox'",
             v-on="click: toggle"
         ) {{* label}}
     label(
-            v-if="type === 'radio'",
+            v-show="type === 'radio'",
             v-on="click: pick"
         ) {{* label ? label : value}}
