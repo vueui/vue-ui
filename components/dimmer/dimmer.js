@@ -1,4 +1,15 @@
+
+/**
+ *  Module dependencies
+ */
+
+var utils = require('vue').util;
 var appendToClassMixin = require('../../helpers/mixins/appendToClass');
+
+
+/**
+ * <ui-dimmer> definition
+ */
 
 module.exports = {
     name: 'Dimmer',
@@ -47,18 +58,15 @@ module.exports = {
 
     methods: {
         show: function () {
-            this.$el.parentNode.className += ' dimmed';
+            var $dimmable = this.$el.parentNode;
+            utils.addClass($dimmable, 'dimmed');
+
             this.visible = true;
         },
 
         hide: function () {
-            var $parent = this.$el.parentNode;
-            var filterDimmed = function (member) {
-                return member !== "dimmed";
-            };
-
-            $parent.className =
-                $parent.className.split(" ").filter(filterDimmed).join(" ");
+            var $dimmable = this.$el.parentNode;
+            utils.removeClass($dimmable, 'dimmed');
 
             this.visible = false;
         },
