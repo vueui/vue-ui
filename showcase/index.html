@@ -28,6 +28,12 @@
         <ui-checkbox type="radio" name="favoriteCat" value="Gummy"></ui-checkbox>
         <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
 
+        <!-- Dimmer -->
+        <div class="dimmable">
+            <h1>Will be dimmed</h1>
+            <ui-dimmer message="This block is dimmed." on="hover" v-ref="dimmer"></ui-dimmer>
+        </div>
+        <button v-on="click: $.dimmer.toggle">Toggle</button>
     </div>
     <script src="build.js"></script>
 </body>

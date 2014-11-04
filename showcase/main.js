@@ -11,6 +11,13 @@ window.app = new Vue({
 });
 
 /**
+ *
+ */
+
+window.dimmer = app.$.dimmer;
+
+
+/**
  * <ui-checkbox> examples
  */
 
