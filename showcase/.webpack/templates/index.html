@@ -17,6 +17,17 @@
         <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
             <a href="#" class="content">{{content}}</a>
         </ui-accordion>
+
+        <!-- Checkbox -->
+        <ui-checkbox
+                class="toggle"
+                name="fun"
+                label="Make my profile visible"
+                v-ref="checkbox"></ui-checkbox>
+
+        <ui-checkbox type="radio" name="favoriteCat" value="Gummy"></ui-checkbox>
+        <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
+
     </div>
     <script src="{%=o.htmlWebpackPlugin.assets.main%}"></script>
 </body>

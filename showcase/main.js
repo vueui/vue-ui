@@ -4,7 +4,19 @@ var Progress = UI.Progress;
 var Accordion = UI.Accordion;
 
 window.app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        favoriteCat: 'Catty'
+    }
+});
+
+/**
+ * <ui-checkbox> examples
+ */
+
+window.checkbox = app.$.checkbox;
+checkbox.$watch('checked', function (checked) {
+    console.log('Checkbox checked? ', checked);
 });
 
 
