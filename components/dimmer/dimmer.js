@@ -62,6 +62,7 @@ module.exports = {
             utils.addClass($dimmable, 'dimmed');
 
             this.visible = true;
+            this.$emit('show');
         },
 
         hide: function () {
@@ -69,10 +70,12 @@ module.exports = {
             utils.removeClass($dimmable, 'dimmed');
 
             this.visible = false;
+            this.$emit('hide');
         },
 
         toggle: function () {
             this.visible ? this.hide() : this.show();
+            this.$emit('toggle', this.visible);
         }
     },
 
