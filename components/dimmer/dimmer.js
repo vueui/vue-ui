@@ -20,18 +20,17 @@ module.exports = {
 
     ready: function () {
         var vm = this;
-        var $dimmable = this.$el.parentNode;
-        var $dimmer = this.$el.querySelector('.ui.dimmer');
-        var toggle = vm.toggle.bind(vm);
+        var $dimmable = this.getDimmable();
+        var $dimmer = this.$$.dimmer;
         var hide = vm.hide.bind(vm);
         var show = vm.show.bind(vm);
 
         // show/hide dimmer on hover or click
         switch (vm.on) {
             case 'click':
-                $dimmable.addEventListener('click', toggle);
+                $dimmer.addEventListener('click', hide);
                 vm.$once('destroyed', function () {
-                   $dimmable.removeEventListener('click', toggle);
+                    $dimmer.removeEventListener('click', hide);
                 });
                 break;
             case 'hover':
@@ -39,6 +38,7 @@ module.exports = {
                 $dimmer.addEventListener('mouseleave', hide);
                 vm.$once('destroyed', function () {
                     $dimmable.removeEventListener('mouseenter', show);
+                    $dimmer.removeEventListener('mouseleave', hide);
                 });
                 break;
         }
@@ -58,7 +58,7 @@ module.exports = {
 
     methods: {
         show: function () {
-            var $dimmable = this.$el.parentNode;
+            var $dimmable = this.getDimmable();
             utils.addClass($dimmable, 'dimmed');
 
             this.visible = true;
@@ -66,7 +66,7 @@ module.exports = {
         },
 
         hide: function () {
-            var $dimmable = this.$el.parentNode;
+            var $dimmable = this.getDimmable();
             utils.removeClass($dimmable, 'dimmed');
 
             this.visible = false;
@@ -76,6 +76,14 @@ module.exports = {
         toggle: function () {
             this.visible ? this.hide() : this.show();
             this.$emit('toggle', this.visible);
+        },
+
+        isPage: function () {
+            return this.$$.dimmer.classList.contains('page');
+        },
+
+        getDimmable: function () {
+            return this.isPage() ? document.body : this.$el.parentNode;
         }
     },
 
