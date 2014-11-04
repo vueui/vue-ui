@@ -49,7 +49,7 @@ module.exports = {
             var name = this.name;
 
             if(vm.$parent) {
-                vm.$parent[name] = vm.value;
+                vm.$parent.$set(name, vm.value);
             }
         },
 
