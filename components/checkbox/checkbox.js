@@ -34,7 +34,8 @@ module.exports = {
     data: function () {
         return {
             type: 'checkbox',
-            checked: false
+            checked: false,
+            disabled: false
         };
     },
 
@@ -50,6 +51,10 @@ module.exports = {
             if(vm.$parent) {
                 vm.$parent[name] = vm.value;
             }
+        },
+
+        disable: function () {
+            this.disabled = true;
         }
     }
 };
