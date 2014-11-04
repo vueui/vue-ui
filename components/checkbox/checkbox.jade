@@ -1,0 +1,15 @@
+.ui.checkbox
+    input(
+            type="{{* type}}",
+            name="{{* name}}",
+            v-model="checked",
+            v-attr="value: value"
+        )
+    label(
+            v-if="type === 'checkbox'",
+            v-on="click: toggle"
+        ) {{* label}}
+    label(
+            v-if="type === 'radio'",
+            v-on="click: pick"
+        ) {{* label ? label : value}}
