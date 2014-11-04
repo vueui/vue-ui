@@ -1,0 +1,6 @@
+.ui.rating(v-class="selected: selected > 0, disabled: disabled")
+    i.icon(
+        v-repeat="icons",
+        v-class="active: $value <= rating, selected: $value <= selected",
+        v-on="mouseenter: select($value), mouseleave: selected = 0, click: set($value)"
+    )
