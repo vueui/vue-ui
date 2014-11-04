@@ -15,6 +15,7 @@ window.app = new Vue({
  */
 
 window.dimmer = app.$.dimmer;
+window.pageDimmer = app.$.pageDimmer;
 
 
 /**

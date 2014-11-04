@@ -6,6 +6,11 @@ I created this set of modules for a few reasons:
 * Make it easy to consume these modules in Vue.js
 * Set some defaults w/ options to override them
 
-### <ui-progress>
+### ui-accordion
+### ui-checkbox
+### ui-dimmer
+```html
+<ui-dimmer></ui-dimmer>
+```
 
-### <ui-accordion>
+### ui-progress

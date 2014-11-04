@@ -4,37 +4,39 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <script src="{%=o.htmlWebpackPlugin.assets.head%}"></script>
 </head>
-<body>
-    <div id="app">
-        <!-- Progress -->
-        <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
-            <div class="label">Adding {{value}} of {{total}} photos</div>
-        </ui-progress>
+<body id="app" class="dimmable">
 
-        <div id="transcoder"></div>
+    <!-- Progress -->
+    <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
+        <div class="label">Adding {{value}} of {{total}} photos</div>
+    </ui-progress>
 
-        <!-- Accordion -->
-        <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
-            <a href="#" class="content">{{content}}</a>
-        </ui-accordion>
+    <div id="transcoder"></div>
 
-        <!-- Checkbox -->
-        <ui-checkbox
-                class="toggle"
-                name="fun"
-                label="Make my profile visible"
-                v-ref="checkbox"></ui-checkbox>
+    <!-- Accordion -->
+    <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
+        <a href="#" class="content">{{content}}</a>
+    </ui-accordion>
 
-        <ui-checkbox type="radio" name="favoriteCat" value="Gummy"></ui-checkbox>
-        <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
+    <!-- Checkbox -->
+    <ui-checkbox
+            class="toggle"
+            name="fun"
+            label="Make my profile visible"
+            v-ref="checkbox"></ui-checkbox>
 
-        <!-- Dimmer -->
-        <div class="dimmable">
-            <h1>Will be dimmed</h1>
-            <ui-dimmer message="This block is dimmed." on="hover" v-ref="dimmer"></ui-dimmer>
-        </div>
-        <button v-on="click: $.dimmer.toggle">Toggle</button>
+    <ui-checkbox type="radio" name="favoriteCat" value="Gummy"></ui-checkbox>
+    <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
+
+    <!-- Dimmer -->
+    <div class="dimmable">
+        <h1>Will be dimmed</h1>
+        <ui-dimmer message="This block is dimmed." v-ref="dimmer"></ui-dimmer>
     </div>
+    <button v-on="click: $.dimmer.toggle">Toggle</button>
+
+    <ui-dimmer class="page" message="This is a page dimmer." v-ref="pageDimmer"></ui-dimmer>
+
     <script src="{%=o.htmlWebpackPlugin.assets.main%}"></script>
 </body>
 </html>
