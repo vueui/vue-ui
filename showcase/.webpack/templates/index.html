@@ -44,6 +44,11 @@
     </div>
 
 
+    <div id="content" v-if="isVisible" v-transition="scale" style="padding: 40px">
+        <h1>Content</h1>
+    </div>
+    <button v-on="click: toggle">toggle</button>
+
     <script src="{%=o.htmlWebpackPlugin.assets.main%}"></script>
 </body>
 </html>

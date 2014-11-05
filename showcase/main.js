@@ -6,7 +6,14 @@ var Accordion = UI.Accordion;
 window.app = new Vue({
     el: '#app',
     data: {
-        favoriteCat: 'Catty'
+        favoriteCat: 'Catty',
+        isVisible: false
+    },
+
+    methods: {
+        toggle: function (e) {
+            this.isVisible = !this.isVisible;
+        }
     }
 });
 
