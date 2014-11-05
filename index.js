@@ -1,4 +1,7 @@
 
+// Load the 'transitions' component which register v-transitions used elsewhere
+require('./components/transitions');
+
 /**
  * Components
  */
