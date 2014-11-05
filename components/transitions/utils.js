@@ -27,7 +27,7 @@ function onAnimationEnd(el, done) {
                 break;
             case settings.out:
                 // the 'leave' animation finished
-                removeClasses(el, settings.leave + ' animating');
+                removeClasses(el, settings.leave + ' animating visible');
                 break;
         }
 
@@ -54,9 +54,21 @@ function removeClasses(el, classes) {
 
 
 /**
+ * Add a set of classes to the el
+ * @param el
+ * @param {String} classes
+ */
+
+function addClasses(el, classes) {
+    classes = classes.split(' ');
+    classes.forEach(util.addClass.bind(el, el));
+}
+
+
+/**
  * exports
  */
 
 exports.onAnimationEnd = onAnimationEnd;
-exports.addClass = util.addClass;
+exports.addClasses = addClasses;
 exports.removeClasses = removeClasses;

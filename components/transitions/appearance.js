@@ -4,33 +4,40 @@
  */
 
 var utils = require('./utils');
+var addClasses = utils.addClasses;
+var removeClasses = utils.removeClasses;
 
 
 /**
  * transition definition
  *
- * @param {String} name - Animation name to use
+ * @param {Object} settings - Animation settings to use
  */
 
 module.exports = function (settings) {
     var onAnimationEnd = utils.onAnimationEnd.bind(settings);
-    var addClass = utils.addClass;
 
     return {
         beforeEnter: function (el) {
-            addClass(el, 'transition visible');
+            addClasses(el, 'transition visible');
         },
 
         enter: function (el, done) {
-            addClass(el, settings.enter);
+            addClasses(el, settings.enter);
 
             onAnimationEnd(el, done);
+            return function() {
+                removeClasses(el, settings.enter);
+            }
         },
 
         leave: function (el, done) {
-            addClass(el, settings.leave);
+            addClasses(el, settings.leave);
 
             onAnimationEnd(el, done);
+            return function() {
+                removeClasses(el, settings.leave);
+            }
         }
     };
 };
