@@ -4,6 +4,8 @@
                 v-on="click: toggle($index)",
                 v-class="active: isActive($index)"
             )
-            content(select=".title") {{* title}}
-        .content(v-class="active: isActive($index)")
+            content(select=".title")
+                i.dropdown.icon
+                | {{* title}}
+        .content(v-show="isActive($index)", v-transition="scale")
             content(select=".content") {{* content}}
