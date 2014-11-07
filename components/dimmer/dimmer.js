@@ -5,6 +5,7 @@
 
 var utils = require('vue').util;
 var appendToClassMixin = require('../../helpers/mixins/appendToClass');
+var matches = require('../../helpers/utils').matches;
 
 
 /**
@@ -26,21 +27,18 @@ module.exports = {
         var show = vm.show.bind(vm);
 
         // show/hide dimmer on hover or click
-        switch (vm.on) {
-            case 'click':
-                $dimmer.addEventListener('click', hide);
-                vm.$once('destroyed', function () {
-                    $dimmer.removeEventListener('click', hide);
-                });
-                break;
-            case 'hover':
-                $dimmable.addEventListener('mouseenter', show);
-                $dimmer.addEventListener('mouseleave', hide);
-                vm.$once('destroyed', function () {
-                    $dimmable.removeEventListener('mouseenter', show);
-                    $dimmer.removeEventListener('mouseleave', hide);
-                });
-                break;
+        if(vm.on === 'hover') {
+            $dimmable.addEventListener('mouseenter', show, false);
+            $dimmer.addEventListener('mouseleave', hide, false);
+            vm.$once('destroyed', function () {
+                $dimmable.removeEventListener('mouseenter', show, false);
+                $dimmer.removeEventListener('mouseleave', hide, false);
+            });
+        } else {
+            $dimmer.addEventListener('click', hide, false);
+            vm.$once('destroyed', function () {
+                $dimmer.removeEventListener('click', hide, false);
+            });
         }
     },
 
@@ -65,7 +63,15 @@ module.exports = {
             this.$emit('show');
         },
 
-        hide: function () {
+        hide: function (e) {
+            // Determine if the event occured on the dimmer
+            var selector = '.ui.dimmer, .ui.dimmer > .content, .ui.dimmer > .content > .center';
+
+            if(e && !matches(e.target, selector)) {
+                e.stopPropagation();
+                return ;
+            }
+
             var $dimmable = this.getDimmable();
             utils.removeClass($dimmable, 'dimmed');
 
