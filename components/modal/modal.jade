@@ -1,0 +1,15 @@
+.ui.standard.modal(
+    v-show="active",
+    v-class="active: active",
+    v-style="margin-top: marginTop + 'px'"
+    v-transition="scale",
+    v-el="modal"
+)
+    i.close.icon(v-on="click: hide")
+    .header: content(select=".header") {{* title}}
+    content(select=".content")
+    .actions: content(select=".actions")
+        .ui.red.button(v-on="click: deny") Cancel
+        .ui.positive.right.labeled.icon.button(v-on="click: approve")
+            | OK
+            i.checkmark.icon
