@@ -18,6 +18,13 @@ window.app = new Vue({
 });
 
 /**
+ * <ui-modal>
+ */
+
+window.confirmation = app.$.modals.$.confirmation;
+window.error = app.$.modals.$.error;
+
+/**
  * <ui-rating>
  */
 

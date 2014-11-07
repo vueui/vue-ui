@@ -50,18 +50,29 @@
         <ui-rating class="huge star" v-ref="starsRating"></ui-rating>
     </div>
 
-
+    <!-- Transitions -->
     <div id="content" v-if="isVisible" v-transition="scale" style="padding: 40px">
         <h1>Content</h1>
     </div>
     <div class="ui button" v-on="click: toggle">toggle</div>
 
-    <div class="ui segment">
-        <p></p>
-        <div class="ui active dimmer">
-            <div class="ui loader"></div>
-        </div>
-    </div>
+    <!-- Modal -->
+    <ui-dimmer class="page" v-ref="modals">
+        <ui-modal title="Confirm" v-ref="confirmation">
+            <div class="content">This is the content of the modal. Proceed?</div>
+        </ui-modal>
+        <ui-modal class="basic" title="Error" v-ref="error">
+            <div class="content">
+                <div class="image">
+                    <i class="archive icon"></i>
+                </div>
+                <div class="description">
+                    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+                </div>
+            </div>
+        </ui-modal>
+    </ui-dimmer>
+
 
     <script src="build.js"></script>
 </body>
