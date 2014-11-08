@@ -8,10 +8,16 @@
 
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:300italic,400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="semantic/semantic-modules.min.css">
 
     <script src=""></script>
 </head>
 <body id="app" class="dimmable">
+
+    <!-- Accordion -->
+    <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
+        <a href="#" class="content">{{content}}</a>
+    </ui-accordion>
 
     <!-- Progress -->
     <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
@@ -20,10 +26,6 @@
 
     <div id="transcoder"></div>
 
-    <!-- Accordion -->
-    <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
-        <a href="#" class="content">{{content}}</a>
-    </ui-accordion>
 
     <!-- Checkbox -->
     <ui-checkbox
@@ -74,6 +76,8 @@
     </ui-dimmer>
 
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="semantic/semantic-modules.js"></script>
     <script src="build.js"></script>
 </body>
 </html>
