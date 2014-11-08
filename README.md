@@ -13,4 +13,8 @@ I created this set of modules for a few reasons:
 <ui-dimmer></ui-dimmer>
 ```
 
+### ui-modal
+
 ### ui-progress
+
+### ui-rating
