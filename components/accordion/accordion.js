@@ -1,14 +1,21 @@
 
-var appendToClassMixin = require('../../helpers/mixins/appendToClass');
+var mixins = require('../../helpers/mixins');
 
 module.exports = {
     name: 'Accordion',
 
     paramAttributes: [ 'active' ],
 
-    mixins: [ appendToClassMixin ],
+    mixins: [
+        mixins.appendToClassMixin,
+        mixins.bindBehaviorsMixin
+    ],
 
     template: require('./accordion.jade'),
+
+    beforeCompile: function () {
+        $(this.$el).accordion();
+    },
 
     compiled: function () {
         if(this.active) this.active = parseInt(this.active, 10);
@@ -17,17 +24,10 @@ module.exports = {
     data: function () {
         return {
             sections: [],
-            active: -1
+            active: 0
         };
     },
 
-    methods: {
-        toggle: function (index) {
-            this.active = index === this.active ? -1 : index;
-        },
+    behaviors: [ 'open', 'close', 'toggle' ]
 
-        isActive: function (index) {
-            return index === this.active;
-        }
-    }
 };
