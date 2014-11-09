@@ -39,12 +39,12 @@ module.exports = {
     },
 
     methods: {
-        set: function (value) {
+        $setRating: function (value) {
             if(value > this.max) return console.warn('Rating cannot exceed ', this.max);
             if(!this.disabled) this.rating = value;
         },
 
-        select: function (value) {
+        $select: function (value) {
             if(!this.disabled) this.selected = value;
         }
     },

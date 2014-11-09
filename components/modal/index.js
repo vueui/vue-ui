@@ -1,12 +1,5 @@
 
 /**
- * Load the CSS for this component
- */
-
-require('../../semantic-ui/dist/components/modal.css');
-
-
-/**
  * Component dependencies
  */
 

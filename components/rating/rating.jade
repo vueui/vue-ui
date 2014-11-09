@@ -2,5 +2,5 @@
     i.icon(
         v-repeat="icons",
         v-class="active: $value <= rating, selected: $value <= selected",
-        v-on="mouseenter: select($value), mouseleave: selected = 0, click: set($value)"
+        v-on="mouseenter: $select($value), mouseleave: selected = 0, click: $setRating($value)"
     )
