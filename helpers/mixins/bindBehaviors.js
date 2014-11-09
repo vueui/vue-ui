@@ -12,7 +12,8 @@ module.exports = {
             if($.isPlainObject(behavior)) {
                 register(behavior);
             } else if(typeof behavior === 'string') {
-                vm['$' + behavior] = $element[moduleName].bind($element, behavior);
+                var methodName = camelize(behavior);
+                vm['$' + methodName] = $element[moduleName].bind($element, behavior);
             }
         });
 
@@ -35,3 +36,13 @@ module.exports = {
 
     }
 };
+
+function camelize(behavior) {
+    var result = '';
+    behavior.split(' ').forEach(function (word, i) {
+        i === 0
+            ? result += word
+            : result += word.charAt(0).toUpperCase() + word.substring(1);
+    });
+    return result;
+}
