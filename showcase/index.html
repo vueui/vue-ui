@@ -12,19 +12,12 @@
 
     <script src=""></script>
 </head>
-<body id="app" class="dimmable">
+<body id="app">
 
     <!-- Accordion -->
     <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
         <a href="#" class="content">{{content}}</a>
     </ui-accordion>
-
-    <!-- Progress -->
-    <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
-        <div class="label">Adding {{value}} of {{total}} photos</div>
-    </ui-progress>
-
-    <div id="transcoder"></div>
 
 
     <!-- Checkbox -->
@@ -33,43 +26,41 @@
     <ui-checkbox type="radio" name="favoriteCat" value="Gummy" checked="checked"></ui-checkbox>
     <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
 
-    <!-- Dimmer -->
-    <div class="ui segment">
-        <div class="ui header">Overlayable section</div>
-        <ui-dimmer on="hover" message="This block is dimmed." v-ref="dimmer"></ui-dimmer>
-    </div>
-    <div class="ui button" v-on="click: $.dimmer.$toggle">Toggle</div>
 
-    <ui-dimmer type="page" message="This is a page dimmer." v-ref="pageDimmer"></ui-dimmer>
+    <!-- Modal -->
+    <ui-modal title="Confirm" size="fullscreen" v-ref="confirmation">
+        <div class="content">This is the content of the modal. Proceed?</div>
+    </ui-modal>
+    <ui-modal type="basic" title="Error" v-ref="error">
+        <div class="content">
+            <div class="image">
+                <i class="archive icon"></i>
+            </div>
+            <div class="description">
+                <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+            </div>
+        </div>
+    </ui-modal>
 
+
+    <!-- Progress -->
+    <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
+        <div class="label">Adding {{value}} of {{total}} photos</div>
+    </ui-progress>
+
+    <div id="transcoder"></div>
     <!-- Rating -->
     <ui-rating class="huge heart" rating="5" max="10" v-ref="rating"></ui-rating>
     <div>
         <ui-rating class="huge star" v-ref="starsRating"></ui-rating>
     </div>
 
+
     <!-- Transitions -->
     <div id="content" v-if="isVisible" v-transition="scale" style="padding: 40px">
         <h1>Content</h1>
     </div>
     <div class="ui button" v-on="click: toggle">toggle</div>
-
-    <!-- Modal -->
-    <ui-dimmer class="page" v-ref="modals">
-        <ui-modal title="Confirm" v-ref="confirmation">
-            <div class="content">This is the content of the modal. Proceed?</div>
-        </ui-modal>
-        <ui-modal class="basic" title="Error" v-ref="error">
-            <div class="content">
-                <div class="image">
-                    <i class="archive icon"></i>
-                </div>
-                <div class="description">
-                    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-                </div>
-            </div>
-        </ui-modal>
-    </ui-dimmer>
 
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>

@@ -21,8 +21,16 @@ window.app = new Vue({
  * <ui-modal>
  */
 
-window.confirmation = app.$.modals.$.confirmation;
-window.error = app.$.modals.$.error;
+window.confirmation = app.$.confirmation;
+confirmation.$on('approved', function () {
+    console.log('User confirmed through the modal.');
+});
+
+confirmation.$on('denied', function () {
+    console.log('User denied confirming through the modal.');
+});
+
+window.error = app.$.error;
 
 /**
  * <ui-rating>
@@ -30,13 +38,6 @@ window.error = app.$.modals.$.error;
 
 window.rating = app.$.rating;
 window.starsRating = app.$.starsRating;
-
-/**
- *  <ui-dimmer>
- */
-
-window.dimmer = app.$.dimmer;
-window.pageDimmer = app.$.pageDimmer;
 
 
 /**
