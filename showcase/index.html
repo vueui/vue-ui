@@ -34,13 +34,13 @@
     <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
 
     <!-- Dimmer -->
-    <div class="dimmable">
-        <h1>Will be dimmed</h1>
-        <ui-dimmer message="This block is dimmed." v-ref="dimmer"></ui-dimmer>
+    <div class="ui segment">
+        <div class="ui header">Overlayable section</div>
+        <ui-dimmer on="hover" message="This block is dimmed." v-ref="dimmer"></ui-dimmer>
     </div>
-    <div class="ui button" v-on="click: $.dimmer.toggle">Toggle</div>
+    <div class="ui button" v-on="click: $.dimmer.$toggle">Toggle</div>
 
-    <ui-dimmer class="page" message="This is a page dimmer." v-ref="pageDimmer"></ui-dimmer>
+    <ui-dimmer type="page" message="This is a page dimmer." v-ref="pageDimmer"></ui-dimmer>
 
     <!-- Rating -->
     <ui-rating class="huge heart" rating="5" max="10" v-ref="rating"></ui-rating>

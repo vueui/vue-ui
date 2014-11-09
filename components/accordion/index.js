@@ -1,10 +1,4 @@
 
-/**
- * Load the CSS for this component
- */
-
-require('../../semantic-ui/dist/components/accordion.css');
-
 
 /**
  * Component dependencies
