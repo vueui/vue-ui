@@ -38,7 +38,7 @@ module.exports = {
     },
 
     methods: {
-        increment: function (value) {
+        $increment: function (value) {
             var vm = this;
             var increment = value || 1;
             var newValue = vm.value + increment;
@@ -47,7 +47,7 @@ module.exports = {
             else console.warn('Value cannot increment above total', vm.total);
         },
 
-        decrement: function (value) {
+        $decrement: function (value) {
             var vm = this;
             var decrement = value || 1;
             var newValue = vm.value - decrement;
