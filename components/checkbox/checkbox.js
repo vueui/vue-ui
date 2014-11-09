@@ -1,60 +1,45 @@
-
-var appendToClassMixin = require('../../helpers/mixins/appendToClass');
+var mixins = require('../../helpers/mixins');
 
 module.exports = {
     name: 'Checkbox',
 
     template: require('./checkbox.jade'),
 
-    paramAttributes: [ 'type', 'name', 'checked', 'label', 'value' ],
+    paramAttributes: ['type', 'name', 'checked', 'label', 'value'],
 
     compiled: function () {
-        var vm = this;
-
-        switch (vm.type) {
-            case 'checkbox':
-                vm.checked = vm.checked === 'checked';
-                break;
-            case 'radio':
-                var $parent = vm.$parent;
-
-                vm.checked = vm.checked === 'checked' ? vm.value : '';
-
-                if($parent) {
-                    $parent.$watch(vm.name, function (value) {
-                        vm.checked = value;
-                    }, false, true);
-                }
-                break;
-        }
+        $(this.$$.checkbox).checkbox();
     },
 
-    mixins: [ appendToClassMixin ],
+    ready: function () {
+        if(this.checked === 'checked') this.$check();
+    },
+
+    mixins: [
+        mixins.appendToClassMixin,
+        mixins.bindBehaviorsMixin
+    ],
 
     data: function () {
         return {
             type: 'checkbox',
-            checked: false,
             disabled: false
         };
     },
 
-    methods: {
-        toggle: function () {
-            this.checked = !this.checked;
-        },
-
-        pick: function () {
-            var vm = this;
-            var name = this.name;
-
-            if(vm.$parent) {
-                vm.$parent.$set(name, vm.value);
-            }
-        },
-
-        disable: function () {
-            this.disabled = true;
+    watch: {
+        disabled: function (isDisabled) {
+            isDisabled ? this.$disable() : this.$enable();
         }
-    }
+    },
+
+    behaviors: [
+        'toggle',
+        'check',
+        'uncheck',
+        'enable',
+        'disable',
+        'is checked',
+        'is radio'
+    ]
 };

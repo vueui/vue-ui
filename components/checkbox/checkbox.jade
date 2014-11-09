@@ -1,15 +1,13 @@
-.ui.checkbox(v-class="disabled: disabled")
+.ui.checkbox(v-el="checkbox")
     input(
             type="{{* type}}",
             name="{{* name}}",
-            v-model="checked",
             v-attr="value: value"
         )
-    label(
-            v-show="type === 'checkbox'",
-            v-on="click: toggle"
-        ) {{* label}}
-    label(
-            v-show="type === 'radio'",
-            v-on="click: pick"
-        ) {{* label ? label : value}}
+    content(select="label")
+        label(
+                v-if="type === 'checkbox'"
+            ) {{* label}}
+        label(
+                v-if="type === 'radio'"
+            ) {{* label ? label : value}}
