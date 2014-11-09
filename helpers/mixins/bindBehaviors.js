@@ -7,13 +7,20 @@ module.exports = {
         var moduleName = this.$options.name.toLowerCase();
         var $element = $(this.$$[moduleName]);
 
-        // Register the behavior(method) as $behavior on the vm with before/after hooks
-        $.each(behaviors, register);
+        // Register the behavior(method) as $behavior on the vm, with optional before/after hooks
+        $.each(behaviors, function (index, behavior) {
+            if($.isPlainObject(behavior)) {
+                register(behavior);
+            } else if(typeof behavior === 'string') {
+                vm['$' + behavior] = $element[moduleName].bind($element, behavior);
+            }
+        });
 
-        function register(behavior, settings) {
+        function register(settings) {
+            var behavior = settings.name;
             var after = $.isFunction(settings.after) ? settings.after.bind(vm) : $.noop;
             var method = $element[moduleName].bind($element, behavior);
-            var before = $.isFunction(settings.before) ? settings.before.bind(vm) : $.noop;
+            var before = $.isFunction(settings.before) ? settings.before.bind(vm) : function(done){ done() };
 
             vm['$' + behavior] = function() {
                 var args = arguments;
@@ -22,8 +29,7 @@ module.exports = {
                     after();
                 };
 
-                if (before !== $.noop) before(done);
-                else done();
+                before(done);
             }
         }
 
