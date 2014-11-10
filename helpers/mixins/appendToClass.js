@@ -7,8 +7,8 @@ module.exports = {
         var componentName = this.$options.name.toLowerCase();
 
         if(vm.class) {
-            var $element = vm.$el.querySelector('.ui.' + componentName);
-            $element.className += ' ' + vm.class;
+            var $element = $(vm.$el).find('.ui.' + componentName) || $(vm.$el);
+            $element.addClass(vm.class);
         }
     }
 };
