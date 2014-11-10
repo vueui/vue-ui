@@ -84,6 +84,17 @@
 
     </div>
 
+
+    <!-- Sidebar -->
+    <div class="ui segment">
+        <ui-sidebar v-ref="sidebar"></ui-sidebar>
+        <div class="ui button" v-on="click: $.sidebar.$toggle">Push</div>
+
+        <ui-sidebar class="raised segment" position="right" transition="overlay" dimPage v-ref="overlaySidebar"></ui-sidebar>
+        <div class="ui button" v-on="click: $.overlaySidebar.$toggle">Overlay</div>
+
+    </div>
+
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="semantic/semantic-modules.js"></script>
     <script src="build.js"></script>

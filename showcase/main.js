@@ -16,6 +16,13 @@ window.app = new Vue({
 });
 
 /**
+ * <ui-sidebar>
+ */
+
+window.sidebar = app.$.sidebar;
+
+
+/**
  * <ui-popup>
  */
 
