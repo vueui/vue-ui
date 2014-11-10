@@ -1,7 +1,7 @@
 .ui.dropdown(v-el="dropdown")
     input(type="hidden" name="{{* name}}")
-    i.dropdown.icon
     .text {{* label}}
+    i.dropdown.icon
     content(select=".menu"): .menu
         content(select=".item")
             .item(v-repeat="options", v-attr="data-value: value") {{* text}}
