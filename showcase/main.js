@@ -16,6 +16,13 @@ window.app = new Vue({
 });
 
 /**
+ * <ui-popup>
+ */
+
+window.popup = app.$.popup;
+
+
+/**
  * <ui-dropdown>
  */
 

@@ -15,16 +15,20 @@
 <body id="app">
 
     <!-- Accordion -->
-    <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
-        <a href="#" class="content">{{content}}</a>
-    </ui-accordion>
+    <div class="ui segment">
+        <ui-accordion class="styled" v-with="sections: sections" v-ref="accordion">
+            <a href="#" class="content">{{content}}</a>
+        </ui-accordion>
+    </div>
 
 
     <!-- Checkbox -->
-    <ui-checkbox class="toggle" name="fun" label="Make my profile visible" v-ref="checkbox"></ui-checkbox>
+    <div class="ui segment">
+        <ui-checkbox class="toggle" name="fun" label="Make my profile visible" v-ref="checkbox"></ui-checkbox>
 
-    <ui-checkbox type="radio" name="favoriteCat" value="Gummy" checked="checked"></ui-checkbox>
-    <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
+        <ui-checkbox type="radio" name="favoriteCat" value="Gummy" checked="checked"></ui-checkbox>
+        <ui-checkbox type="radio" name="favoriteCat" value="Catty"></ui-checkbox>
+    </div>
 
 
     <!-- Modal -->
@@ -44,31 +48,41 @@
 
 
     <!-- Progress -->
-    <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
-        <div class="label">Adding {{value}} of {{total}} photos</div>
-    </ui-progress>
+    <div class="ui segment">
+        <ui-progress class="inverted indicating" value="10" total="20" v-ref="progress">
+            <div class="label">Adding {{value}} of {{total}} photos</div>
+        </ui-progress>
 
-    <div id="transcoder"></div>
+        <div id="transcoder"></div>
+    </div>
 
 
     <!-- Rating -->
-    <ui-rating class="huge heart" rating="5" max="10" v-ref="rating"></ui-rating>
-    <div>
+    <div class="ui segment">
+        <ui-rating class="huge heart" rating="5" max="10" v-ref="rating"></ui-rating>
         <ui-rating class="huge star" v-ref="starsRating"></ui-rating>
     </div>
 
 
     <!-- Dropdown -->
-    <ui-dropdown type="search selection" label="Gender" options="{{selectOptions}}"></ui-dropdown>
+    <div class="ui segment">
+        <ui-dropdown type="search selection" label="Gender" options="{{selectOptions}}"></ui-dropdown>
 
-    <ui-dropdown type="inline" name="gender" label="Gender" options="{{selectOptions}}" v-ref="select">
-        <div class="item" v-repeat="options" v-attr="data-value: value">
-            <i class="{{* value}} icon"></i>
-            {{text}}
-        </div>
-    </ui-dropdown>
+        <ui-dropdown type="inline" name="gender" label="Gender" options="{{selectOptions}}" v-ref="select">
+            <div class="item" v-repeat="options" v-attr="data-value: value">
+                <i class="{{* value}} icon"></i>
+                {{text}}
+            </div>
+        </ui-dropdown>
+    </div>
 
 
+    <!-- Popup -->
+    <div class="ui center aligned segment">
+        <i class="circular heart icon link"></i>
+        <ui-popup content="The description." position="right center" variation="inverted" v-ref="popup"></ui-popup>
+
+    </div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="semantic/semantic-modules.js"></script>
