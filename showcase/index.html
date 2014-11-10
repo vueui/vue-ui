@@ -92,8 +92,19 @@
 
         <ui-sidebar class="raised segment" position="right" transition="overlay" dimPage v-ref="overlaySidebar"></ui-sidebar>
         <div class="ui button" v-on="click: $.overlaySidebar.$toggle">Overlay</div>
-
     </div>
+
+
+    <!-- Transitions -->
+    <div class="ui raised segment">
+        <h1 v-show="showName" v-transition="slide-up">Agon</h1>
+
+        <div class="ui celled ordered list">
+            <div class="item" v-repeat="players" v-transition="drop">{{$value}}</div>
+            <div class="item" v-repeat="teams" v-transition="scale">{{$value}}</div>
+        </div>
+    </div>
+
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="semantic/semantic-modules.js"></script>

@@ -11,9 +11,34 @@ window.app = new Vue({
         selectOptions: [
             { text: 'Male', value: 'male' },
             { text: 'Female', value: 'female'}
-        ]
+        ],
+
+        showName: false,
+        players: [ ],
+        teams: [ ]
     }
 });
+
+/**
+ * Transition triggers
+ */
+
+setTimeout(function () {
+    app.players.push('mascherano');
+    app.teams.push('F.C. Barcelona');
+
+    setTimeout(function () {
+        app.players.push('pique');
+        app.teams.push('Chelsea');
+
+        setTimeout(function () {
+            app.players.push('xavi');
+            app.teams.push('Borussia Dortmund');
+
+        }, 1000);
+    }, 1000);
+}, 1000);
+
 
 /**
  * <ui-sidebar>
