@@ -49,6 +49,8 @@
     </ui-progress>
 
     <div id="transcoder"></div>
+
+
     <!-- Rating -->
     <ui-rating class="huge heart" rating="5" max="10" v-ref="rating"></ui-rating>
     <div>
@@ -56,11 +58,16 @@
     </div>
 
 
-    <!-- Transitions -->
-    <div id="content" v-if="isVisible" v-transition="scale" style="padding: 40px">
-        <h1>Content</h1>
-    </div>
-    <div class="ui button" v-on="click: toggle">toggle</div>
+    <!-- Dropdown -->
+    <ui-dropdown type="search selection" label="Gender" options="{{selectOptions}}"></ui-dropdown>
+
+    <ui-dropdown type="inline" name="gender" label="Gender" options="{{selectOptions}}" v-ref="select">
+        <div class="item" v-repeat="options" v-attr="data-value: value">
+            <i class="{{* value}} icon"></i>
+            {{text}}
+        </div>
+    </ui-dropdown>
+
 
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>

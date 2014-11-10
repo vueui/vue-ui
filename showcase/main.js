@@ -7,15 +7,20 @@ window.app = new Vue({
     el: '#app',
     data: {
         favoriteCat: 'Catty',
-        isVisible: false
-    },
 
-    methods: {
-        toggle: function (e) {
-            this.isVisible = !this.isVisible;
-        }
+        selectOptions: [
+            { text: 'Male', value: 'male' },
+            { text: 'Female', value: 'female'}
+        ]
     }
 });
+
+/**
+ * <ui-dropdown>
+ */
+
+window.select = app.$.select;
+
 
 /**
  * <ui-modal>
