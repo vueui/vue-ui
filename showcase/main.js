@@ -1,7 +1,20 @@
+
+/**
+ * App dependencies
+ */
+
 var Vue = require('vue');
-var UI = require('..');
-var Progress = UI.Progress;
-var Accordion = UI.Accordion;
+var vueUI = require('..');
+
+Vue.use(vueUI);
+
+
+/**
+ * Showcase examples
+ */
+
+var Progress = Vue.component('ui-progress');
+var Accordion = Vue.component('ui-accordion');
 
 window.app = new Vue({
     el: '#app',

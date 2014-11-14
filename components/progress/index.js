@@ -7,14 +7,7 @@ require('../../semantic-ui/dist/components/progress.css');
 
 
 /**
- * Component dependencies
+ * Export component definition
  */
 
-var Vue = require('vue');
-var componentOptions = require('./progress');
-var Progress = Vue.extend(componentOptions);
-
-// Register the component globally
-Vue.component('ui-progress', Progress);
-
-module.exports = Progress;
+module.exports = require('./progress');

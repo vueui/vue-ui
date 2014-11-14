@@ -1,20 +1,34 @@
 
-/**
- * Load the 'transitions' component which register v-transitions used elsewhere
- */
 
-require('./components/transitions');
+exports.install = function (Vue) {
+
+    require('./components/transitions')(Vue);
+
+    /**
+     * Components
+     */
+
+    var Accordion = Vue.extend(require('./components/accordion'));
+    var Checkbox = Vue.extend(require('./components/checkbox'));
+    var Dropdown = Vue.extend(require('./components/dropdown'));
+    var Modal = Vue.extend(require('./components/modal'));
+    var Popup = Vue.extend(require('./components/popup'));
+    var Progress = Vue.extend(require('./components/progress'));
+    var Rating = Vue.extend(require('./components/rating'));
+    var Sidebar = Vue.extend(require('./components/sidebar'));
 
 
-/**
- * Components
- */
+    /**
+     * Register components globally
+     */
 
-exports.Accordion = require('./components/accordion');
-exports.Checkbox = require('./components/checkbox');
-exports.Dropdown = require('./components/dropdown');
-exports.Modal = require('./components/modal');
-exports.Popup = require('./components/popup');
-exports.Progress = require('./components/progress');
-exports.Rating = require('./components/rating');
-exports.Sidebar = require('./components/sidebar');
+    Vue.component('ui-accordion', Accordion);
+    Vue.component('ui-checkbox', Checkbox);
+    Vue.component('ui-dropdown', Dropdown);
+    Vue.component('ui-modal', Modal);
+    Vue.component('ui-popup', Popup);
+    Vue.component('ui-progress', Progress);
+    Vue.component('ui-rating', Rating);
+    Vue.component('ui-sidebar', Sidebar);
+
+};

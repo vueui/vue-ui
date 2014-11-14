@@ -3,7 +3,6 @@
  * Register transitions using Vue.transition
  */
 
-var Vue = require('vue');
 var defineEmphasis = require('./defineEmphasis');
 var defineAppearance = require('./defineAppearance');
 
@@ -28,15 +27,26 @@ var appearance = [
     'browse'
 ];
 
-emphasis.forEach(function (animation) {
-    var definition = defineEmphasis(animation);
 
-    Vue.transition(animation, definition);
-});
+/**
+ * Register all transitions globally
+ * @param Vue
+ */
 
-appearance.forEach(function (animation) {
-    var definition = defineAppearance(animation);
-    var id = animation.split(' ').join('-');
+module.exports = function (Vue) {
 
-    Vue.transition(id, definition);
-});
+    emphasis.forEach(function (animation) {
+        var definition = defineEmphasis(animation);
+
+        Vue.transition(animation, definition);
+    });
+
+    appearance.forEach(function (animation) {
+        var definition = defineAppearance(animation);
+        var id = animation.split(' ').join('-');
+
+        Vue.transition(id, definition);
+    });
+
+};
+

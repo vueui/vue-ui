@@ -14,10 +14,8 @@
     "url": "https://github.com/agonbina/vue-ui/issues"
   },
   "homepage": "https://github.com/agonbina/vue-ui",
-  "dependencies": {
-    "vue": "yyx990803/vue#next"
-  },
   "devDependencies": {
+    "vue": "^0.11.0",
     "webpack": "^1.4.10",
     "html-webpack-plugin": "^1.1.0",
     "css-loader": "^0.9.0",
