@@ -5,10 +5,9 @@ This is a 'port' of the [Semantic-UI](https://github.com/Semantic-Org/Semantic-U
 
 ### ui-accordion
 ### ui-checkbox
-### ui-dimmer
-
+### ui-dropdown
 ### ui-modal
-
+### ui-popup
 ### ui-progress
-
 ### ui-rating
+### ui-sidebar
