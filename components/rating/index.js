@@ -3,7 +3,7 @@
  * Load the CSS for this component
  */
 
-require('../../semantic-ui/dist/components/rating.css');
+require('./rating.css');
 
 
 /**
