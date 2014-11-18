@@ -31,7 +31,7 @@ module.exports = {
     data: function () {
         return {
             label: '',
-            type: 'selection',
+            type: '',
             on: 'click',
             name: '',
             options: []
