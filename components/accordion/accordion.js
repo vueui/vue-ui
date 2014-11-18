@@ -13,18 +13,15 @@ module.exports = {
 
     template: require('./accordion.jade'),
 
-    beforeCompile: function () {
-        $(this.$el).accordion();
-    },
-
-    compiled: function () {
-        if(this.active) this.active = parseInt(this.active, 10);
-    },
+	compiled: function() {
+		if(this.active) this.active = parseInt(this.active, 10);
+		$(this.$$.accordion).accordion();
+	},
 
     data: function () {
         return {
             sections: [],
-            active: 0
+            active: -1
         };
     },
 

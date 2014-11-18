@@ -3,4 +3,4 @@
         .title: content(select=".title")
                     i.dropdown.icon
                     | {{* title}}
-        .content: content(select=".content") {{* content}}
+        .content(class="{{ active === $index ? 'active' : '' }}"): content(select=".content") {{* content}}
