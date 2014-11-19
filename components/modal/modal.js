@@ -40,6 +40,7 @@ module.exports = {
     },
 
     behaviors: [
+		'show',
         'hide',
         'toggle',
         'is active'
