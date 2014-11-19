@@ -3,7 +3,6 @@
  * Module dependencies
  */
 
-var Vue = require('vue');
 var appendToClassMixin = require('../../helpers/mixins/appendToClass');
 
 
@@ -28,11 +27,10 @@ module.exports = {
     data: function () {
 
         return {
-            autoDestroy: true,
             autoStatus: true,
             isActive: false,
             status: '',
-            value: 10,
+            value: 0,
             total: 100
         };
     },
@@ -64,6 +62,9 @@ module.exports = {
     },
 
     watch: {
+		'value > 0 && value < total': function() {
+			this.isActive = true;
+		},
         'value === total': function () {
             var vm = this;
 
@@ -72,13 +73,6 @@ module.exports = {
 
             vm.isActive = false;
             vm.$emit('completed');
-
-            // Destroy the component when it reaches to the 'completed' stage
-            if(vm.autoDestroy) {
-                Vue.nextTick(function () {
-                    vm.$destroy();
-                });
-            }
         }
     },
 
