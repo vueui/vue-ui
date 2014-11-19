@@ -16,12 +16,15 @@ module.exports = {
     paramAttributes: [ 'transition', 'direction', 'dimPage' ],
 
     compiled: function () {
+		var $sidebar = $(this.$$.sidebar);
         this.dimPage = this.dimPage ? true : false;
 
-        $(this.$$.sidebar).sidebar({
+        $sidebar.sidebar({
             transition: this.transition,
             dimPage: this.dimPage
         });
+		
+		if(this.class) $sidebar.addClass('ui sidebar');
     },
 
     data: function () {
@@ -39,5 +42,7 @@ module.exports = {
 
     behaviors: [ 'show', 'hide', 'toggle' ],
 
-    template: require('./sidebar.jade')
+    template: require('./sidebar.jade'),
+
+	replace: true
 };
